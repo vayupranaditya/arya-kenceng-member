@@ -34,28 +34,45 @@ class _MyHomePageState extends State<MyHomePage> {
         length: 4,
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(85.0),
+            preferredSize: Size.fromHeight(100.0),
             child: AppBar(
               title: Text("Arya Kenceng"),
-              bottom: TabBar(
-                tabs: <Widget>[
-                  AutoSizeText(
-                    "Anggota",
-                    maxLines: 1,
-                  ),
-                  AutoSizeText(
-                    "Kabar",
-                    maxLines: 1,
-                  ),
-                  AutoSizeText(
-                    "Promo",
-                    maxLines: 1,
-                  ),
-                  AutoSizeText(
-                    "Profil",
-                    maxLines: 1,
-                  ),
-                ],
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () => {},
+                )
+              ],
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(15.0),
+                child: TabBar(
+                  tabs: <Widget>[
+                    Tab(
+                      child: AutoSizeText(
+                        "Anggota",
+                        maxLines: 1,
+                      ),
+                    ),
+                    Tab(
+                      child: AutoSizeText(
+                        "Kabar",
+                        maxLines: 1,
+                      ),
+                    ),
+                    Tab(
+                      child: AutoSizeText(
+                        "Promo",
+                        maxLines: 1,
+                      ),
+                    ),
+                    Tab(
+                      child: AutoSizeText(
+                        "Profil",
+                        maxLines: 1,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               backgroundColor: Colors.orange[400],
             ),
