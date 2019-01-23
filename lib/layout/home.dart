@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'homeMember.dart';
 import 'homeNewsfeed.dart';
+import 'homePromo.dart';
 
 class HomeFragment {
   static Widget buildHomeFragment() {
@@ -57,7 +58,7 @@ class HomeFragment {
             children: <Widget>[ //per tab
               MemberFragment.buildMemberFragment(),
               NewsfeedFragment.buildNewsfeedFragment(),
-              Icon(Icons.shopping_cart),
+              PromoFragment.buildPromoFragment(),
               Icon(Icons.person),
             ],
           ),
