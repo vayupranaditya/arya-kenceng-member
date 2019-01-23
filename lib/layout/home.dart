@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'homeMember.dart';
+import 'homeNewsfeed.dart';
 
 class HomeFragment {
   static Widget buildHomeFragment() {
@@ -55,7 +56,7 @@ class HomeFragment {
           body: TabBarView(
             children: <Widget>[ //per tab
               MemberFragment.buildMemberFragment(),
-              Icon(Icons.wrap_text),
+              NewsfeedFragment.buildNewsfeedFragment(),
               Icon(Icons.shopping_cart),
               Icon(Icons.person),
             ],

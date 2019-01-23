@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class MemberFragment {
   static List <List <String>> name = [
     ["I Gusti Bagus Vayupranaditya Putraadinatha", "Jro Titih"], 
