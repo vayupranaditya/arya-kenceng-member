@@ -3,6 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'homeMember.dart';
 import 'homeNewsfeed.dart';
 import 'homePromo.dart';
+import 'homeProfile.dart';
 
 class HomeFragment {
   static Widget buildHomeFragment() {
@@ -59,7 +60,7 @@ class HomeFragment {
               MemberFragment.buildMemberFragment(),
               NewsfeedFragment.buildNewsfeedFragment(),
               PromoFragment.buildPromoFragment(),
-              Icon(Icons.person),
+              ProfileFragment.buildProfileFragment(),
             ],
           ),
         ),
