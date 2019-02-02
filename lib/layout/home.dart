@@ -14,7 +14,7 @@ class HomeFragment {
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
-              title: Text("Arya Kenceng"),
+              title: Text("Arya Kenceng Connect"),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.settings),

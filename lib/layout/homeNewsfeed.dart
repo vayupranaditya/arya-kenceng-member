@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'newsfeedDetail.dart';
 
 class NewsfeedFragment {
 
@@ -13,9 +14,17 @@ class NewsfeedFragment {
     ["Judul", "Tanggal", "Isi berita"],
   ];
 
+  static gotoDetail(BuildContext context, String url, int index) {
+    print("news category: " + index.toString() + " clicked");
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NewsfeedDetail(url:url + " " + index.toString()))
+    );
+  }
+
   static Widget buildNewsCategory(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => print("news category: " + index.toString() + " clicked"),
+      onTap: () => {},
       child: Container(
         padding: EdgeInsets.all(3.0),
         alignment: Alignment.center,
@@ -49,7 +58,7 @@ class NewsfeedFragment {
 
   static Widget buildNews(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => print("news " + index.toString() + " clicked"),
+      onTap: () => gotoDetail(context, news[index][0], index),
       child: Container(
         padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
