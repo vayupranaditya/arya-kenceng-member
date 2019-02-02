@@ -15,7 +15,6 @@ class NewsfeedFragment {
   ];
 
   static gotoDetail(BuildContext context, String url, int index) {
-    print("news category: " + index.toString() + " clicked");
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => NewsfeedDetail(url:url + " " + index.toString()))

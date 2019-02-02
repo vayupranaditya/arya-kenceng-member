@@ -7,10 +7,10 @@ class NewsfeedDetail extends StatelessWidget {
 
   static Widget buildNewsfeedBody(String url) {
     return Container(
-      padding: EdgeInsets.all(10.0),
       child: ListView(
         children: <Widget>[
-          Container(  //Title
+          Container(
+            margin: EdgeInsets.only(top:10.0, left: 10.0, right: 10.0), //Title
             child: Text(url * 8,
               style: TextStyle(
                 fontSize: 20,
@@ -19,7 +19,8 @@ class NewsfeedDetail extends StatelessWidget {
             ),
           ),
           Container(  //Title
-            child: Text("Diterbitkan pada " + url,
+            margin: EdgeInsets.only(top:4.0, left: 10.0, right: 10.0), //Title
+            child: Text("Diterbitkan pada " + url + " oleh " + url,
               style: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
@@ -28,7 +29,7 @@ class NewsfeedDetail extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10.0),
+            margin: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: Colors.indigo
             ),
@@ -36,7 +37,7 @@ class NewsfeedDetail extends StatelessWidget {
             child: Image.network("https://animatedanatomy.com/images/16-9-dummy-image6.jpg"),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
+            margin: EdgeInsets.only(right: 10.0, bottom: 10.0, left: 10.0),
             child: Text((("#" * 350) + " ") * 5),
           )
         ],
