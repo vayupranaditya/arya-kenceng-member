@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'memberDetail.dart';
 
 class MemberFragment {
   static List <List <String>> name = [
@@ -14,6 +14,13 @@ class MemberFragment {
     ["Android", "Jro Gede"], 
     ["Google", "Apple"]
   ];
+
+  static gotoDetail(BuildContext context, String url, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MemberDetail(url:url + " " + index.toString()))
+    );
+  }
 
   static Widget buildMemberListTile(BuildContext context, int index) {
     return GestureDetector(
@@ -66,9 +73,7 @@ class MemberFragment {
           ),
         ],
       ),
-      onTap: (){
-        print(name[index][0] + " clicked");
-      },
+      onTap: () => gotoDetail(context, name[index][1], index)
     );
   }
 
