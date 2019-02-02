@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'promoDetail.dart';
 
 class PromoFragment {
 
@@ -13,9 +14,16 @@ class PromoFragment {
     ["Promo", "Sudah digunakan", "Penjelasan promo"],
   ];
 
+  static gotoDetail(BuildContext context, String url, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PromoDetail(url:url + " " + index.toString()))
+    );
+  }
+
   static Widget buildPromo(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => print("promo " + index.toString() + " clicked"),
+      onTap: () => gotoDetail(context, promo[index][1], index),
       child: Container(
         padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
