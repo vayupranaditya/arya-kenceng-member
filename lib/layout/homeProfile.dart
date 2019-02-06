@@ -13,10 +13,27 @@ class ProfileFragment {
       child: Column(
         children: <Widget>[
           Container(
-            child: CircleAvatar(
-              backgroundColor: Colors.indigo,
-              minRadius: 50.0,
-            ),
+            width: 100.0,
+            child: Stack(
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundColor: Colors.indigo,
+                  backgroundImage: NetworkImage("https://media.licdn.com/dms/image/C5603AQE34nhJoXmUfg/profile-displayphoto-shrink_200_200/0?e=1554940800&v=beta&t=gw7pkmo2OKaZwOyHO0PBKz7kJblnc3jOJqqRRQ7Wvz4"),
+                  minRadius: 50.0,
+                ),
+                Positioned(
+                  right: 0.0,
+                  bottom: 0.0,
+                  width: 40.0,
+                  height: 40.0,
+                  child: FloatingActionButton(
+                    onPressed: () => {},
+                    backgroundColor: Colors.orange,
+                    child: Icon(Icons.edit),
+                  ),
+                )
+              ],
+            )
           ),
           Container(
             padding: EdgeInsets.only(top:10.0),
