@@ -16,11 +16,10 @@ class MemberDetail extends StatelessWidget {
       alignment: Alignment(0.0,0.0),
       child: Column(
         children: <Widget>[
-          Container(
-            child: CircleAvatar(
-              backgroundColor: Colors.orange[400],
-              // backgroundImage: NetworkImage(user['profilePicture']),
-              minRadius: 50.0,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(50.0),
+            child: Image.network(user['profilePicture'],
+              width: 100.0,
             ),
           ),
           Container(
