@@ -65,9 +65,11 @@ class MemberDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(user['jroPuri'],
-                  maxLines: 1,
-                ),
+                Expanded(
+                  child: Text(user['jroPuri'],
+                    textAlign: TextAlign.center,
+                  ),
+                )
               ],
             ),
           )
