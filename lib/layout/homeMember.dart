@@ -23,7 +23,7 @@ class MemberFragment {
                     children: <Widget>[
                       Container(
                         child: CircleAvatar(
-                          backgroundColor: Colors.orange[300],
+                          backgroundColor: Colors.grey[300],
                           backgroundImage: NetworkImage(UserSummary.getUser(index)['profilePicture']),
                         ),
                         width: 60.0,
@@ -46,6 +46,7 @@ class MemberFragment {
                             fontSize: 16.0,
                           ),
                           maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         Text(UserSummary.getUser(index)['jroPuri'],
                           style: TextStyle(
@@ -63,7 +64,7 @@ class MemberFragment {
           ),
         ],
       ),
-      onTap: () => gotoDetail(context, UserSummary.getUser(index)['phoneNumber'])
+      onTap: () => gotoDetail(context, UserSummary.getUser(index)['phone'])
     );
   }
 
