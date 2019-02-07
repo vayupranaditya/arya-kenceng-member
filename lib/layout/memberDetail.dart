@@ -6,6 +6,27 @@ class MemberDetail extends StatelessWidget {
 
   MemberDetail({Key key, @required this.url}) : super(key: key);
 
+  static Widget buildBadge(String type) {
+    if (type == 'Officer') {
+      return Container(
+        margin: EdgeInsets.only(top: 10.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+          child: Container(
+            color: Colors.orange[600],
+            padding: EdgeInsets.all(5.0),
+            child: Text("Pengurus"),
+          ),
+        ),
+      );
+    } else {
+      return Container(
+        width: 0.0,
+        height: 10.0,
+      );
+    }
+  }
+
   static Widget buildProfileSummary(Map <String, String> user) {
     return Container(
       width: double.infinity,
@@ -22,8 +43,8 @@ class MemberDetail extends StatelessWidget {
               width: 100.0,
             ),
           ),
+          buildBadge(user['type']),
           Container(
-            padding: EdgeInsets.only(top:10.0),
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
