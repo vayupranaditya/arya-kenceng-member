@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
 import 'memberDetail.dart';
+import '../datas/users.dart';
 
 class MemberFragment {
-  static List <List <String>> name = [
-    ["I Gusti Bagus Vayupranaditya Putraadinatha", "Jro Titih"], 
-    ["I Gusti Bagus Satcitananda Putraadinatha", "Jro Titih"], 
-    ["Nama lengkap anggota", "Nama jro"], 
-    ["Lorem ipsum dolor sit amet", "Lorem ipsum"], 
-    ["Martabak", "Milk tea"], 
-    ["Babi guling", "Thai tea"], 
-    ["Sri Nararya Kenceng", "Arya Kenceng"], 
-    ["Flutter 1.0", "Jro Ketut"], 
-    ["Android", "Jro Gede"], 
-    ["Google", "Apple"]
-  ];
 
-  static gotoDetail(BuildContext context, String url, int index) {
+  static gotoDetail(BuildContext context, String url) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MemberDetail(url:url + " " + index.toString()))
+      MaterialPageRoute(builder: (context) => MemberDetail(url:url))
     );
   }
 
@@ -34,7 +23,8 @@ class MemberFragment {
                     children: <Widget>[
                       Container(
                         child: CircleAvatar(
-                          backgroundColor: Colors.lime,
+                          backgroundColor: Colors.orange[300],
+                          backgroundImage: NetworkImage(UserSummary.getUser(index)['profilePicture']),
                         ),
                         width: 60.0,
                         height: 60.0,
@@ -49,7 +39,7 @@ class MemberFragment {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
-                        Text(name[index][0],
+                        Text(UserSummary.getUser(index)['name'],
                           style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w600,
@@ -57,7 +47,7 @@ class MemberFragment {
                           ),
                           maxLines: 1,
                         ),
-                        Text(name[index][1],
+                        Text(UserSummary.getUser(index)['jroPuri'],
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -73,7 +63,7 @@ class MemberFragment {
           ),
         ],
       ),
-      onTap: () => gotoDetail(context, name[index][1], index)
+      onTap: () => gotoDetail(context, UserSummary.getUser(index)['phoneNumber'])
     );
   }
 
@@ -83,7 +73,7 @@ class MemberFragment {
         separatorBuilder: (BuildContext context, int index) => Divider(
           color: Colors.grey,
         ),
-        itemCount: name.length,
+        itemCount: UserSummary.users.length,
         itemBuilder: (BuildContext context, int index) => buildMemberListTile(context, index),
         padding: EdgeInsets.only(top: 5.0, bottom: 10.0),
       ),
