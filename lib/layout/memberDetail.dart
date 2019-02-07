@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../datas/users.dart';
 
 class MemberDetail extends StatelessWidget {
   final String url;
-  
+
   MemberDetail({Key key, @required this.url}) : super(key: key);
 
-  static Widget buildProfileSummary() {
+  static Widget buildProfileSummary(Map <String, String> user) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -17,19 +18,26 @@ class MemberDetail extends StatelessWidget {
         children: <Widget>[
           Container(
             child: CircleAvatar(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.orange[400],
+              // backgroundImage: NetworkImage(user['profilePicture']),
               minRadius: 50.0,
             ),
           ),
           Container(
             padding: EdgeInsets.only(top:10.0),
+            width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Nama Lengkap Nama Lengkap",
-                  textScaleFactor: 1.2,
-                  maxLines: 1,
-                ),
+                Expanded(
+                  child: Text(user['name'],
+                    textAlign: TextAlign.center,
+                    textScaleFactor: 1.3,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                )
               ],
             )
           ),
@@ -37,7 +45,7 @@ class MemberDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Jro Titih",
+                Text(user['jroPuri'],
                   maxLines: 1,
                 ),
               ],
@@ -98,7 +106,7 @@ class MemberDetail extends StatelessWidget {
     );
   }
 
-  static Widget buildProfileDetail() {
+  static Widget buildProfileDetail(Map <String, String> user) {
     return Container(
       width: double.infinity,
       child: Column(
@@ -111,32 +119,32 @@ class MemberDetail extends StatelessWidget {
               children: <Widget>[
                 buildField(
                   name: "Tanggal lahir",
-                  value: "03/18/1999"
+                  value: user['birthdate']
                 ),
                 buildField(
                   name: "Jenis kelamin",
-                  value: "Laki-laki"
+                  value: user['gender']
                 ),
                 buildField(
                   name: "Status",
-                  value: "Single"
+                  value: user['status']
                 ),
                 buildField(
                   name: "Alamat tinggal",
-                  value: "HeyMart, Banjar Teges, Desa Beraban, Kecamatan Selemadeg Timur, Kabupaten Tabanan, Bali",
+                  value: user['address'],
                   isMultiline: true,
                 ),
                 buildField(
                   name: "Nomor telepon",
-                  value: "081236629835"
+                  value: user['phone']
                 ),
                 buildField(
                   name: "Pekerjaan",
-                  value: "Mahasiswa"
+                  value: user['job']
                 ),
                 buildField(
                   name: "Bidang usaha",
-                  value: "Pendidikan"
+                  value: user['business']
                 )
               ],
             ),
@@ -146,14 +154,14 @@ class MemberDetail extends StatelessWidget {
     );
   }
 
-  static Widget buildProfileBody() {
+  static Widget buildProfileBody(Map <String, String> user) {
     return Column(
       children: <Widget>[
         Expanded(
           child: ListView(
             children: <Widget>[
-              buildProfileSummary(),
-              buildProfileDetail(),
+              buildProfileSummary(user),
+              buildProfileDetail(user),
             ],
           ),
         )
@@ -163,12 +171,13 @@ class MemberDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map <String, String> user = UserDetail.getUser(url);
     return Scaffold(
       appBar: AppBar(
         title: Text("Anggota"),
         backgroundColor: Colors.orange[400],
       ),
-      body: buildProfileBody()
+      body: buildProfileBody(user)
     );
   }
 }
