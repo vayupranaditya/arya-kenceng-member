@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../datas/promos.dart';
 
 class PromoDetail extends StatelessWidget {
   final String url;
@@ -11,7 +12,7 @@ class PromoDetail extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(top:10.0, left: 10.0, right: 10.0), //Title
-            child: Text(url * 4,
+            child: Text(Promos.promos[int.parse(url)]['title'],
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600
@@ -20,7 +21,7 @@ class PromoDetail extends StatelessWidget {
           ),
           Container(  //Title
             margin: EdgeInsets.only(top:4.0, left: 10.0, right: 10.0), //Title
-            child: Text(url,
+            child: Text(Promos.promos[int.parse(url)]['status'],
               style: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
@@ -31,14 +32,14 @@ class PromoDetail extends StatelessWidget {
           Container(
             margin: EdgeInsets.all(10.0),
             decoration: BoxDecoration(
-              color: Colors.indigo
+              color: Colors.indigo,
             ),
             width: double.infinity,
-            child: Image.network("https://animatedanatomy.com/images/16-9-dummy-image6.jpg"),
+            child: Image.network(Promos.promos[int.parse(url)]['photo_large']),
           ),
           Container(
             margin: EdgeInsets.only(right: 10.0, bottom: 10.0, left: 10.0),
-            child: Text((("#" * 350) + " ") * 2),
+            child: Text(Promos.promos[int.parse(url)]['content']),
           )
         ],
       ),

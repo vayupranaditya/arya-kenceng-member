@@ -1,29 +1,19 @@
 import 'package:flutter/material.dart';
 import 'promoDetail.dart';
+import '../datas/promos.dart';
 
 class PromoFragment {
-
-  static List <List <String>> promo = [
-    ["Promo", "Siap ditukar", "Penjelasan promo"],
-    ["Promo", "Siap ditukar", "Penjelasan promo"],
-    ["Promo", "Tersedia", "Penjelasan promo"],
-    ["Promo", "Tersedia", "Penjelasan promo"],
-    ["Promo", "Tersedia", "Penjelasan promo"],
-    ["Promo", "Tersedia", "Penjelasan promo"],
-    ["Promo", "Sudah digunakan", "Penjelasan promo"],
-    ["Promo", "Sudah digunakan", "Penjelasan promo"],
-  ];
 
   static gotoDetail(BuildContext context, String url, int index) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PromoDetail(url:url + " " + index.toString()))
+      MaterialPageRoute(builder: (context) => PromoDetail(url:url))
     );
   }
 
   static Widget buildPromo(BuildContext context, int index) {
     return GestureDetector(
-      onTap: () => gotoDetail(context, promo[index][1], index),
+      onTap: () => gotoDetail(context, index.toString(), index),
       child: Container(
         padding: EdgeInsets.all(5.0),
         decoration: BoxDecoration(
@@ -39,7 +29,12 @@ class PromoFragment {
                   height: 75.0,
                   width: 75.0,
                   decoration: BoxDecoration(
-                    color: Colors.indigo,
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                    child: Image.network(Promos.promos[index]['photo'] + '?x=' + index.toString()),
                   ),
                 )
               ],
@@ -51,7 +46,7 @@ class PromoFragment {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
-                    Text(promo[index][0] + " " + index.toString(),
+                    Text(Promos.promos[index]['title'],
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 16.0
@@ -59,7 +54,7 @@ class PromoFragment {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    Text(promo[index][1],
+                    Text(Promos.promos[index]['status'],
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 12.0
@@ -67,9 +62,9 @@ class PromoFragment {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 5.0),
-                      child: Text((promo[index][2] + " ") * 10,
+                      child: Text(Promos.promos[index]['content'],
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis,
                       ),
                     )
                   ],
@@ -85,7 +80,7 @@ class PromoFragment {
   static Widget buildPromoList() {
     return Expanded(
       child: ListView.builder(
-        itemCount: promo.length,
+        itemCount: Promos.promos.length,
         itemBuilder: (BuildContext context, int index) => buildPromo(context, index),
       ),
     );
