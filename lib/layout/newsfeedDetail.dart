@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../datas/news.dart';
 
 class NewsfeedDetail extends StatelessWidget {
   final String url;
@@ -11,7 +12,7 @@ class NewsfeedDetail extends StatelessWidget {
         children: <Widget>[
           Container(
             margin: EdgeInsets.only(top:10.0, left: 10.0, right: 10.0), //Title
-            child: Text(url * 8,
+            child: Text(News.news[int.parse(url)]['title'],
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600
@@ -20,7 +21,7 @@ class NewsfeedDetail extends StatelessWidget {
           ),
           Container(  //Title
             margin: EdgeInsets.only(top:4.0, left: 10.0, right: 10.0), //Title
-            child: Text("Diterbitkan pada " + url + " oleh " + url,
+            child: Text("Diterbitkan pada " + News.news[int.parse(url)]['date_posted'] + " oleh " + News.news[int.parse(url)]['author'],
               style: TextStyle(
                 fontSize: 13.0,
                 fontWeight: FontWeight.w400,
@@ -34,11 +35,11 @@ class NewsfeedDetail extends StatelessWidget {
               color: Colors.indigo
             ),
             width: double.infinity,
-            child: Image.network("https://animatedanatomy.com/images/16-9-dummy-image6.jpg"),
+            child: Image.network(News.news[int.parse(url)]['photo_large'] + '&x=' + url),
           ),
           Container(
             margin: EdgeInsets.only(right: 10.0, bottom: 10.0, left: 10.0),
-            child: Text((("#" * 350) + " ") * 5),
+            child: Text(News.news[int.parse(url)]['content']),
           )
         ],
       ),
