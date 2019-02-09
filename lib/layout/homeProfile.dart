@@ -35,27 +35,33 @@ class ProfileFragment {
               ],
             )
           ),
-          Container(
-            padding: EdgeInsets.only(top:10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("Nama Lengkap Nama Lengkap",
-                  textScaleFactor: 1.2,
-                  maxLines: 1,
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Text("I Gusti Bagus Vayupranaditya Putraadinatha",
+                        textScaleFactor: 1.2,
+                        textAlign: TextAlign.center,
+                      )
+                    ),
+                    SizedBox(
+                      height: 25.0,
+                      width: 25.0,
+                      child: IconButton(
+                        padding: EdgeInsets.all(0.0),
+                        icon: Icon(Icons.edit),
+                        iconSize: 20.0,
+                        onPressed: () => {},
+                      ),
+                    ),
+                  ]
                 ),
-                SizedBox(
-                  height: 25.0,
-                  width: 25.0,
-                  child: IconButton(
-                    padding: EdgeInsets.all(0.0),
-                    icon: Icon(Icons.edit),
-                    iconSize: 20.0,
-                    onPressed: () => {},
-                  ),
-                ),
-              ],
-            )
+              ),
+            ],
           ),
           Container(
             child: Row(
