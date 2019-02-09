@@ -56,6 +56,8 @@ class PromoFragment {
                         fontWeight: FontWeight.w600,
                         fontSize: 16.0
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(promo[index][1],
                       style: TextStyle(
@@ -67,6 +69,7 @@ class PromoFragment {
                       padding: EdgeInsets.only(top: 5.0),
                       child: Text((promo[index][2] + " ") * 10,
                         maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     )
                   ],
