@@ -88,8 +88,10 @@ class NewsfeedFragment {
                     Text(news[index][0] + " " + index.toString(),
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 16.0
+                        fontSize: 16.0,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(news[index][1],
                       style: TextStyle(
@@ -101,6 +103,7 @@ class NewsfeedFragment {
                       padding: EdgeInsets.only(top: 5.0),
                       child: Text((news[index][2] + " ") * 10,
                         maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     )
                   ],
