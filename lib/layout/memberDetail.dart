@@ -39,7 +39,7 @@ class MemberDetail extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(50.0),
-            child: Image.network(user['profilePicture'],
+            child: Image.network(user['profilePicture'] + '&x=' + user['phone'],
               width: 100.0,
             ),
           ),

@@ -24,7 +24,7 @@ class MemberFragment {
                       Container(
                         child: CircleAvatar(
                           backgroundColor: Colors.grey[300],
-                          backgroundImage: NetworkImage(UserSummary.getUser(index)['profilePicture']),
+                          backgroundImage: NetworkImage(UserSummary.getUser(index)['profilePicture'] + '&x=' + UserSummary.getUser(index)['phone'].toString()),
                         ),
                         width: 60.0,
                         height: 60.0,
