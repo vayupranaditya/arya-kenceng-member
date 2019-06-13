@@ -64,7 +64,10 @@ class MemberFragment {
           ),
         ],
       ),
-      onTap: () => gotoDetail(context, UserSummary.getUser(index)['phone'])
+      onTap: () => 
+        User.index()
+        // gotoDetail(context, UserSummary.getUser(index)['phone'])
+      
     );
   }
 

@@ -1,3 +1,17 @@
+import 'dart:convert';
+import 'dart:io';
+
+class User {
+  static void index() async {
+    var request = await HttpClient().getUrl(Uri.parse('http://10.42.0.143:8000/user'));
+      print('a');
+      var response = await request.close();
+      await for (var contents in response.transform(Utf8Decoder())) {
+        print(contents);
+      }
+  }
+}
+
 class UserSummary {
   static List <Map <String, String>> users = [
     {
