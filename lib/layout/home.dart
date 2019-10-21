@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'homeMember.dart';
-import 'homeNewsfeed.dart';
-import 'homePromo.dart';
+import 'newsfeed.dart';
+import 'promo.dart';
 import 'homeProfile.dart';
+import 'components/global.dart';
 
 class HomeFragment {
   static Widget buildHomeFragment() {
@@ -14,7 +14,7 @@ class HomeFragment {
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
-              title: Text("Arya Kenceng Connect"),
+              title: ActivityTitle('Arya Kenceng Connect'),
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.settings),
@@ -25,30 +25,10 @@ class HomeFragment {
                 preferredSize: Size.fromHeight(15.0),
                 child: TabBar(
                   tabs: <Widget>[
-                    Tab(
-                      child: AutoSizeText(
-                        "Anggota",
-                        maxLines: 1,
-                      ),
-                    ),
-                    Tab(
-                      child: AutoSizeText(
-                        "Kabar",
-                        maxLines: 1,
-                      ),
-                    ),
-                    Tab(
-                      child: AutoSizeText(
-                        "Promo",
-                        maxLines: 1,
-                      ),
-                    ),
-                    Tab(
-                      child: AutoSizeText(
-                        "Profil",
-                        maxLines: 1,
-                      ),
-                    ),
+                    DefaultTabContent('Anggota'),
+                    DefaultTabContent('Kabar'),
+                    DefaultTabContent('Promo'),
+                    DefaultTabContent('Profil')
                   ],
                 ),
               ),
@@ -58,8 +38,8 @@ class HomeFragment {
           body: TabBarView(
             children: <Widget>[ //per tab
               MemberFragment.buildMemberFragment(),
-              NewsfeedFragment.buildNewsfeedFragment(),
-              PromoFragment.buildPromoFragment(),
+              NewsfeedFragment(),
+              PromoFragment(),
               ProfileFragment.buildProfileFragment(),
             ],
           ),
